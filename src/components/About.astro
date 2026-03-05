@@ -1,0 +1,264 @@
+---
+const stats = [
+  { label: "FRONTEND", pct: 90, gradient: "linear-gradient(90deg, var(--neon-cyan), #0080ff)" },
+  { label: "MOBILE", pct: 85, gradient: "linear-gradient(90deg, var(--neon-green), #00aa44)" },
+  { label: "BACKEND", pct: 78, gradient: "linear-gradient(90deg, var(--atari-orange), var(--pixel-yellow))" },
+  { label: "PERFORMANCE", pct: 92, gradient: "linear-gradient(90deg, var(--snes-purple), #cc00ff)" },
+  { label: "PROBLEM SOLVE", pct: 96, gradient: "linear-gradient(90deg, var(--hp-red), var(--atari-orange))" },
+];
+---
+
+<section id="about">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2>CHARACTER SELECT</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="grid">
+    <!-- Character Card -->
+    <div class="card">
+      <div class="card-header">
+        <div class="avatar">&#x1F3AE;</div>
+        <div class="card-info">
+          <span class="card-name">ERIK KLEIMAN</span>
+          <span class="card-class">FULL-STACK + MOBILE</span>
+        </div>
+      </div>
+      <div class="card-divider"></div>
+      <div class="stat-bars">
+        {stats.map((s) => (
+          <div class="stat-row">
+            <span class="stat-label">{s.label}</span>
+            <div class="stat-track">
+              <div class="stat-fill" style={`width:${s.pct}%;background:${s.gradient}`}></div>
+            </div>
+            <span class="stat-num">{s.pct}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Bio -->
+    <div class="bio">
+      <p>
+        Hey, I'm <strong>Erik</strong> — a software engineer who ships real products.
+        <strong>React Native marketplaces</strong>, <strong>Chrome extensions</strong>,
+        <strong>AI pipelines</strong>, and client websites built for performance. I care
+        about clean architecture, real user problems, and code that doesn't embarrass
+        future me.
+      </p>
+      <p>
+        I specialize in <strong>TypeScript</strong> across the full stack — from Expo
+        mobile apps and Astro sites to Node APIs and Supabase backends. If it ships to
+        real users, I want to build it right.
+      </p>
+      <p>
+        Currently open to full-stack or mobile SWE roles in
+        <strong>San Diego or remote</strong>.
+      </p>
+
+      <div class="xp-bar">
+        <div class="xp-label">
+          <span>XP TO NEXT LEVEL</span>
+          <span>7,300 / 10,000</span>
+        </div>
+        <div class="xp-track">
+          <div class="xp-fill"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  section {
+    padding: 80px 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  /* Section header */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+
+  .section-num {
+    font-family: 'VT323', monospace;
+    font-size: 48px;
+    color: var(--snes-purple);
+    line-height: 1;
+  }
+
+  .section-header h2 {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 14px;
+    color: var(--pixel-yellow);
+    white-space: nowrap;
+  }
+
+  .section-line {
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(90deg, var(--snes-purple), transparent);
+  }
+
+  /* Grid */
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  @media (max-width: 700px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Character card */
+  .card {
+    position: relative;
+    border: 2px solid var(--snes-purple);
+    background: rgba(10, 0, 21, 0.8);
+    padding: 24px;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    transform: translate(4px, 4px);
+    background: var(--snes-purple);
+    z-index: -1;
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-bottom: 16px;
+  }
+
+  .avatar {
+    width: 64px;
+    height: 64px;
+    border: 2px solid var(--neon-cyan);
+    background: var(--snes-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    flex-shrink: 0;
+  }
+
+  .card-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .card-name {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 11px;
+    color: #fff;
+  }
+
+  .card-class {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 8px;
+    color: var(--atari-orange);
+  }
+
+  .card-divider {
+    border-bottom: 1px solid var(--snes-purple);
+    margin-bottom: 16px;
+  }
+
+  /* Stat bars */
+  .stat-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .stat-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .stat-label {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 6px;
+    color: var(--ps1-grey);
+    width: 80px;
+    flex-shrink: 0;
+  }
+
+  .stat-track {
+    flex: 1;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .stat-fill {
+    height: 100%;
+  }
+
+  .stat-num {
+    font-family: 'VT323', monospace;
+    font-size: 18px;
+    color: var(--neon-green);
+    width: 28px;
+    text-align: right;
+  }
+
+  /* Bio */
+  .bio {
+    font-family: 'VT323', monospace;
+    font-size: 20px;
+    color: #c0b0e0;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .bio strong {
+    color: var(--neon-cyan);
+    font-weight: normal;
+  }
+
+  /* XP bar */
+  .xp-bar {
+    margin-top: 24px;
+  }
+
+  .xp-label {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 8px;
+    color: var(--neon-green);
+    margin-bottom: 8px;
+  }
+
+  .xp-track {
+    height: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  .xp-fill {
+    height: 100%;
+    width: 73%;
+    background: linear-gradient(90deg, var(--atari-orange), var(--pixel-yellow));
+    animation: xp-grow 2s ease forwards;
+    --bar-width: 73%;
+  }
+</style>

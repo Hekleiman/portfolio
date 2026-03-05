@@ -1,0 +1,139 @@
+---
+---
+
+<nav>
+  <a href="#" class="logo">PLAYER ONE</a>
+  <button class="hamburger" aria-label="Toggle menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <div class="links">
+    <a href="#about">ABOUT</a>
+    <a href="#projects">PROJECTS</a>
+    <a href="#skills">SKILLS</a>
+    <a href="#contact">CONTACT</a>
+  </div>
+</nav>
+
+<style>
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 28px;
+    background: rgba(10, 0, 21, 0.92);
+    border-bottom: 2px solid var(--snes-purple);
+    backdrop-filter: blur(4px);
+  }
+
+  .logo {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 10px;
+    color: var(--neon-green);
+    text-decoration: none;
+    text-shadow:
+      0 0 6px var(--neon-green),
+      0 0 20px rgba(57, 255, 20, 0.4);
+    animation: flicker 4s infinite;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 18px;
+    height: 2px;
+    background: var(--neon-green);
+  }
+
+  .links {
+    display: flex;
+    gap: 24px;
+  }
+
+  .links a {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 7px;
+    color: var(--ps1-grey);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .links a::before {
+    content: '\25B6 ';
+    color: var(--atari-orange);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .links a:hover {
+    color: var(--pixel-yellow);
+  }
+
+  .links a:hover::before {
+    opacity: 1;
+  }
+
+  @media (max-width: 768px) {
+    .hamburger {
+      display: flex;
+    }
+
+    .links {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: rgba(10, 0, 21, 0.97);
+      border-bottom: 2px solid var(--snes-purple);
+      padding: 16px 24px;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    nav.nav-open .links {
+      display: flex;
+    }
+
+    .links a {
+      font-size: 9px;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(106, 13, 173, 0.3);
+    }
+
+    .links a:last-child {
+      border-bottom: none;
+    }
+  }
+</style>
+
+<script is:inline>
+  var hamburger = document.querySelector('.hamburger');
+  var nav = document.querySelector('nav');
+  var links = document.querySelectorAll('.links a');
+
+  hamburger.addEventListener('click', function () {
+    nav.classList.toggle('nav-open');
+  });
+
+  links.forEach(function (link) {
+    link.addEventListener('click', function () {
+      nav.classList.remove('nav-open');
+    });
+  });
+</script>

@@ -1,0 +1,207 @@
+---
+import { SITE } from '../data/meta';
+---
+
+<section class="hero">
+  <div class="grid"></div>
+
+  <div class="px" style="left:8%;top:70%;width:8px;height:8px;background:var(--snes-purple);animation-duration:8s;animation-delay:0s;"></div>
+  <div class="px" style="left:22%;top:55%;width:6px;height:6px;background:var(--neon-cyan);animation-duration:10s;animation-delay:1s;"></div>
+  <div class="px" style="left:75%;top:65%;width:12px;height:12px;background:var(--atari-orange);animation-duration:7s;animation-delay:2s;"></div>
+  <div class="px" style="left:90%;top:50%;width:4px;height:4px;background:var(--neon-green);animation-duration:12s;animation-delay:0.5s;"></div>
+  <div class="px" style="left:50%;top:80%;width:16px;height:16px;background:var(--snes-purple);animation-duration:14s;animation-delay:3s;"></div>
+  <div class="px" style="left:35%;top:60%;width:6px;height:6px;background:var(--neon-cyan);animation-duration:6s;animation-delay:4s;"></div>
+  <div class="px" style="left:65%;top:75%;width:10px;height:10px;background:var(--atari-orange);animation-duration:9s;animation-delay:6s;"></div>
+  <div class="px" style="left:12%;top:45%;width:5px;height:5px;background:var(--neon-green);animation-duration:11s;animation-delay:2.5s;"></div>
+
+  <div class="content">
+    <span class="insert-coin">INSERT COIN</span>
+    <h1>{SITE.title}</h1>
+    <div class="typed-line">
+      <span class="typed-prefix">&gt;&nbsp;</span>
+      <span id="typed-title"></span>
+      <span class="cursor"></span>
+    </div>
+
+    <div class="stats">
+      <div class="chip">EXP: <span class="val">3+ YRS</span></div>
+      <div class="chip">CLASS: <span class="val">FULL-STACK + MOBILE</span></div>
+      <div class="chip">STATUS: <span class="val">OPEN TO WORK</span></div>
+    </div>
+
+    <div class="ctas">
+      <a href="#projects" class="btn btn-primary">VIEW PROJECTS</a>
+      <a href="#contact" class="btn btn-secondary">HIRE ME</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 100px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* Perspective grid */
+  .grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--snes-purple) 1px, transparent 1px),
+      linear-gradient(90deg, var(--snes-purple) 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.12;
+    transform: perspective(600px) rotateX(40deg);
+    transform-origin: bottom;
+  }
+
+  .content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+  }
+
+  /* INSERT COIN badge */
+  .insert-coin {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 8px;
+    color: var(--atari-orange);
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+    animation: blink 1.2s step-end infinite;
+  }
+
+  /* Name */
+  h1 {
+    font-family: 'Press Start 2P', monospace;
+    font-size: clamp(20px, 5vw, 46px);
+    color: #fff;
+    letter-spacing: 4px;
+    text-align: center;
+    line-height: 1.4;
+    text-shadow:
+      4px 4px 0px var(--snes-purple),
+      8px 8px 0px #3a005a,
+      0 0 40px rgba(106, 13, 173, 0.6);
+  }
+
+  /* Typing line */
+  .typed-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 36px;
+  }
+
+  .typed-prefix {
+    font-family: 'VT323', monospace;
+    font-size: clamp(18px, 3vw, 28px);
+    color: var(--neon-green);
+  }
+
+  #typed-title {
+    font-family: 'VT323', monospace;
+    font-size: clamp(18px, 3vw, 28px);
+    color: var(--neon-cyan);
+    letter-spacing: 3px;
+  }
+
+  .cursor {
+    display: inline-block;
+    width: 14px;
+    height: 3px;
+    background: var(--neon-cyan);
+    vertical-align: middle;
+    margin-left: 2px;
+    animation: blink 0.8s step-end infinite;
+  }
+
+  /* Stat chips */
+  .stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+  }
+
+  .chip {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 7px;
+    color: var(--ps1-grey);
+    border: 1px solid var(--snes-purple);
+    padding: 8px 16px;
+    background: rgba(106, 13, 173, 0.1);
+  }
+
+  .chip .val {
+    color: var(--neon-green);
+  }
+
+  /* CTA buttons */
+  .ctas {
+    display: flex;
+    gap: 16px;
+    margin-top: 28px;
+  }
+
+  .btn {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 9px;
+    padding: 14px 24px;
+    text-decoration: none;
+    transition: transform 0.15s, box-shadow 0.15s;
+    cursor: pointer;
+  }
+
+  .btn-primary {
+    background: var(--neon-green);
+    color: var(--screen-bg);
+    box-shadow: 4px 4px 0 #1a8c00;
+  }
+
+  .btn-primary:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 #1a8c00;
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--neon-cyan);
+    border: 2px solid var(--neon-cyan);
+    box-shadow: 4px 4px 0 #006b80;
+  }
+
+  .btn-secondary:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 #006b80;
+  }
+</style>
+
+<script is:inline>
+  var titles = ["FULL-STACK ENGINEER","MOBILE DEVELOPER","PRODUCT BUILDER","CODE WIZARD","TYPESCRIPT NERD"];
+  var ti = 0, ci = 0, deleting = false;
+  var el = document.getElementById("typed-title");
+  function type() {
+    var t = titles[ti];
+    if (!deleting) {
+      el.textContent = t.slice(0, ++ci);
+      if (ci === t.length) { deleting = true; setTimeout(type, 1800); return; }
+    } else {
+      el.textContent = t.slice(0, --ci);
+      if (ci === 0) { deleting = false; ti = (ti + 1) % titles.length; }
+    }
+    setTimeout(type, deleting ? 50 : 90);
+  }
+  type();
+</script>

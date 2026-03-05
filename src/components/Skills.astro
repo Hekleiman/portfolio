@@ -1,0 +1,138 @@
+---
+import { skillCategories } from '../data/skills';
+---
+
+<section id="skills">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2>POWER-UPS</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="skills-grid">
+    {skillCategories.map((cat) => (
+      <div class="category">
+        <h3 class="cat-title">{cat.category}</h3>
+        <div class="skill-list">
+          {cat.skills.map((skill) => (
+            <div class="skill">
+              <div class="skill-meta">
+                <span class="skill-name">{skill.name}</span>
+                <span class="skill-pct">{skill.pct}%</span>
+              </div>
+              <div class="skill-track">
+                <div
+                  class="skill-fill"
+                  style={`--skill-target:${skill.pct}%;background:${skill.gradient}`}
+                ></div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 24px;
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+
+  .section-num {
+    font-family: 'VT323', monospace;
+    font-size: 48px;
+    color: var(--snes-purple);
+    line-height: 1;
+  }
+
+  .section-header h2 {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 14px;
+    color: var(--pixel-yellow);
+    white-space: nowrap;
+  }
+
+  .section-line {
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(90deg, var(--snes-purple), transparent);
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+
+  @media (max-width: 700px) {
+    .skills-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .cat-title {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 8px;
+    color: var(--atari-orange);
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .cat-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--atari-orange);
+    opacity: 0.3;
+  }
+
+  .skill-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .skill-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+  }
+
+  .skill-name {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 7px;
+    color: #c0b0e0;
+  }
+
+  .skill-pct {
+    font-family: 'VT323', monospace;
+    font-size: 18px;
+    color: var(--neon-green);
+    line-height: 1;
+  }
+
+  .skill-track {
+    height: 10px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .skill-fill {
+    height: 100%;
+    animation: skill-in 1.5s ease forwards;
+  }
+</style>

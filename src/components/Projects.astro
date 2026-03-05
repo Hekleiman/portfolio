@@ -1,0 +1,59 @@
+---
+import { projects } from '../data/projects';
+import ProjectCard from './ProjectCard.astro';
+---
+
+<section id="projects">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2>GAME LIBRARY</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="project-grid">
+    {projects.map((p) => (
+      <ProjectCard project={p} />
+    ))}
+  </div>
+</section>
+
+<style>
+  section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 24px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+
+  .section-num {
+    font-family: 'VT323', monospace;
+    font-size: 48px;
+    color: var(--snes-purple);
+    line-height: 1;
+  }
+
+  .section-header h2 {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 14px;
+    color: var(--pixel-yellow);
+    white-space: nowrap;
+  }
+
+  .section-line {
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(90deg, var(--snes-purple), transparent);
+  }
+
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 32px;
+  }
+</style>

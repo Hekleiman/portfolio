@@ -1,0 +1,200 @@
+---
+import type { Project } from '../data/projects';
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+const stars = [1, 2, 3, 4, 5];
+---
+
+<article class="cartridge">
+  <div class="cartridge-top">
+    <span class="cart-id">SNS-{project.num}</span>
+    <span class="cart-stars">
+      {stars.map((s) => (
+        <span class={s <= project.stars ? 'star filled' : 'star empty'}>
+          {s <= project.stars ? '\u2605' : '\u2606'}
+        </span>
+      ))}
+    </span>
+  </div>
+
+  <div class="cartridge-label">
+    <span class="project-num">PROJECT NO. {project.num}</span>
+    <h3>{project.title}</h3>
+    <p>{project.description}</p>
+  </div>
+
+  <div class="cartridge-bottom">
+    <div class="tags">
+      {project.tags.map((tag) => (
+        <span class="tag">{tag}</span>
+      ))}
+    </div>
+    <div class="links">
+      {project.githubUrl && (
+        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+          &#x25B6; GITHUB
+        </a>
+      )}
+      {project.liveUrl === '#' ? (
+        <span class="link-disabled">&#x25B6; {project.linkLabel ?? 'IN PROGRESS'}</span>
+      ) : (
+        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+          &#x25B6; {project.linkLabel ?? 'LIVE DEMO'}
+        </a>
+      )}
+    </div>
+  </div>
+</article>
+
+<style>
+  .cartridge {
+    background: var(--snes-dark);
+    border: 2px solid var(--snes-purple);
+    border-radius: 4px 4px 0 0;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cartridge:hover {
+    transform: translateY(-6px);
+    box-shadow:
+      0 12px 0 #3a005a,
+      0 0 30px rgba(106, 13, 173, 0.4);
+  }
+
+  /* Top bar */
+  .cartridge-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    background: linear-gradient(90deg, #2a0050, #4a0080, #2a0050);
+  }
+
+  .cart-id {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 7px;
+    color: var(--pixel-yellow);
+    letter-spacing: 3px;
+  }
+
+  .cart-stars {
+    display: flex;
+    gap: 2px;
+  }
+
+  .star {
+    font-size: 8px;
+    color: var(--atari-orange);
+  }
+
+  .star.empty {
+    opacity: 0.35;
+  }
+
+  /* Label (cream SNES area) */
+  .cartridge-label {
+    position: relative;
+    margin: 0 12px;
+    background: linear-gradient(180deg, #f0e8d0, #ddd0b0);
+    border: 1px solid #aaa080;
+    padding: 16px;
+    color: #1a0030;
+  }
+
+  .cartridge-label::before {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    right: 4px;
+    height: 3px;
+    background: repeating-linear-gradient(
+      90deg,
+      #cc0000 0px,
+      #cc0000 33%,
+      #0044cc 33%,
+      #0044cc 66%,
+      #cc0000 66%,
+      #cc0000 100%
+    );
+    opacity: 0.6;
+  }
+
+  .project-num {
+    display: block;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 7px;
+    color: #666040;
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+
+  .cartridge-label h3 {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 12px;
+    color: #1a0030;
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+
+  .cartridge-label p {
+    font-family: 'VT323', monospace;
+    font-size: 15px;
+    color: #3a2a00;
+    line-height: 1.4;
+  }
+
+  /* Bottom */
+  .cartridge-bottom {
+    padding: 12px 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .tag {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 6px;
+    padding: 3px 7px;
+    background: rgba(106, 13, 173, 0.3);
+    border: 1px solid var(--snes-purple);
+    color: var(--neon-cyan);
+    letter-spacing: 1px;
+  }
+
+  .links {
+    display: flex;
+    gap: 12px;
+    margin-top: auto;
+  }
+
+  .links a,
+  .link-disabled {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 7px;
+    color: var(--neon-green);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .links a:hover {
+    color: var(--pixel-yellow);
+  }
+
+  .link-disabled {
+    opacity: 0.5;
+  }
+</style>

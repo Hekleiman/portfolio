@@ -1,0 +1,170 @@
+---
+---
+
+<section id="contact">
+  <div class="section-header">
+    <span class="section-num">04</span>
+    <h2>GAME OVER?</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="continue-box">
+    <h3 class="continue-heading">CONTINUE?</h3>
+    <p class="subtitle">Let's build something great together</p>
+
+    <div class="timer-row">
+      <span class="timer-label">TIME REMAINING:</span>
+      <span id="timer" class="timer-value">9</span>
+    </div>
+
+    <div class="ctas">
+      <a href="mailto:hekleiman@gmail.com" class="btn btn-primary">EMAIL ME</a>
+      <a href="https://github.com/Hekleiman" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">GITHUB</a>
+      <a href="https://linkedin.com/in/henry-erik-kleiman-85aa99288" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">LINKEDIN</a>
+    </div>
+
+    <p class="response-time">RESPONSE TIME: UNDER 24 HOURS</p>
+  </div>
+</section>
+
+<style>
+  section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 24px;
+    text-align: center;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+
+  .section-num {
+    font-family: 'VT323', monospace;
+    font-size: 48px;
+    color: var(--snes-purple);
+    line-height: 1;
+  }
+
+  .section-header h2 {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 14px;
+    color: var(--pixel-yellow);
+    white-space: nowrap;
+  }
+
+  .section-line {
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(90deg, var(--snes-purple), transparent);
+  }
+
+  .continue-box {
+    display: inline-block;
+    border: 3px solid var(--neon-cyan);
+    padding: 48px 64px;
+    background: rgba(0, 229, 255, 0.03);
+    box-shadow:
+      0 0 40px rgba(0, 229, 255, 0.1),
+      inset 0 0 40px rgba(0, 229, 255, 0.03);
+  }
+
+  @media (max-width: 700px) {
+    .continue-box {
+      padding: 32px 20px;
+    }
+  }
+
+  .continue-heading {
+    font-family: 'Press Start 2P', monospace;
+    font-size: clamp(14px, 3vw, 22px);
+    color: #fff;
+    margin-bottom: 12px;
+  }
+
+  .subtitle {
+    font-family: 'VT323', monospace;
+    font-size: 20px;
+    color: var(--ps1-grey);
+    margin-bottom: 24px;
+  }
+
+  .timer-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  .timer-label {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 8px;
+    color: var(--ps1-grey);
+  }
+
+  .timer-value {
+    font-family: 'VT323', monospace;
+    font-size: 28px;
+    color: var(--hp-red);
+    text-shadow: 0 0 10px rgba(255, 34, 68, 0.6);
+  }
+
+  .ctas {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+  }
+
+  .btn {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 9px;
+    padding: 14px 24px;
+    text-decoration: none;
+    transition: transform 0.15s, box-shadow 0.15s;
+    cursor: pointer;
+  }
+
+  .btn-primary {
+    background: var(--neon-green);
+    color: var(--screen-bg);
+    box-shadow: 4px 4px 0 #1a8c00;
+  }
+
+  .btn-primary:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 #1a8c00;
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--neon-cyan);
+    border: 2px solid var(--neon-cyan);
+    box-shadow: 4px 4px 0 #006b80;
+  }
+
+  .btn-secondary:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 #006b80;
+  }
+
+  .response-time {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 7px;
+    color: var(--ps1-grey);
+  }
+</style>
+
+<script is:inline>
+  var count = 9;
+  var timerEl = document.getElementById("timer");
+  setInterval(function() {
+    count = count > 0 ? count - 1 : 9;
+    timerEl.textContent = count;
+  }, 1000);
+</script>

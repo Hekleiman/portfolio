@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://hekdev.com/sitemap-index.xml
