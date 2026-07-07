@@ -83,11 +83,10 @@ export const projects: Project[] = [
     num: "007",
     title: "JEWMANITY",
     description:
-      "16-page Astro 5 site for a Jewish mental health 501(c)(3). Snipcart shop, Donorbox tier deep-linking, and volunteer/contact forms. Sanity-backed with hardcoded GROQ fallbacks so a CMS outage never breaks a page.",
-    tags: ["ASTRO 5", "TAILWIND 4", "SANITY CMS", "SNIPCART", "GSAP"],
+      "16-page site for Jewmanity, a Jewish and Israeli mental health 501(c)(3). Tells the org's story, presents its healing retreats and mental health resources, and makes it easy to donate, shop, and get involved. Stripe shop, Givebutter donations, and volunteer/contact forms. Sanity CMS with hardcoded GROQ fallbacks so a CMS outage never breaks a page.",
+    tags: ["ASTRO 5", "TAILWIND 4", "SANITY CMS", "STRIPE", "GIVEBUTTER", "GSAP"],
     githubUrl: "",
-    liveUrl: "#",
-    linkLabel: "COMING SOON",
+    liveUrl: "https://jewmanity.com",
     stars: 5,
   },
 ];
