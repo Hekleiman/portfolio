@@ -12,8 +12,19 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    id: "tradeup",
+    id: "jewmanity",
     num: "001",
+    title: "JEWMANITY",
+    description:
+      "16-page site for Jewmanity, a Jewish and Israeli mental health 501(c)(3). Tells the org's story, presents its healing retreats and mental health resources, and makes it easy to donate, shop, and get involved. Stripe shop, Givebutter donations, and volunteer/contact forms. Sanity CMS with hardcoded GROQ fallbacks so a CMS outage never breaks a page.",
+    tags: ["ASTRO 5", "TAILWIND 4", "SANITY CMS", "STRIPE", "GIVEBUTTER", "GSAP"],
+    githubUrl: "",
+    liveUrl: "https://jewmanity.com",
+    stars: 5,
+  },
+  {
+    id: "tradeup",
+    num: "002",
     title: "TRADE-UP",
     description:
       "React Native marketplace for hybrid cash and trade offers. AI image recognition pipeline reduced costs 70-90% vs LLM-only solutions. Real-time messaging, QR trade finalization, biometric auth. Production distributed via TestFlight.",
@@ -24,7 +35,7 @@ export const projects: Project[] = [
   },
   {
     id: "portsmith",
-    num: "002",
+    num: "003",
     title: "PORTSMITH",
     description:
       "Chrome extension for migrating AI assistant configs between ChatGPT, Claude, and Gemini. Reverse-engineered platform APIs, built a Universal Interchange Schema, zero user data leaves the device. Live on the Chrome Web Store.",
@@ -35,7 +46,7 @@ export const projects: Project[] = [
   },
   {
     id: "hekdesign",
-    num: "003",
+    num: "004",
     title: "HEK DESIGN STUDIO",
     description:
       "6-page portfolio site with headless CMS, GSAP scroll animations, and pixel-perfect Figma implementation. Self-hosted fonts and optimized asset delivery for sub-1.5s load on slow 4G.",
@@ -46,7 +57,7 @@ export const projects: Project[] = [
   },
   {
     id: "drikipper",
-    num: "004",
+    num: "005",
     title: "DR. KIPPER MD",
     description:
       "HIPAA-compliant Next.js 15 concierge medicine site. Diagnosed Core Web Vitals degradation traced to Mumbai hosting geography and migrated to Vercel US infrastructure. WCAG 2.2 AA, JSON-LD E-E-A-T SEO, and a staff CMS portal for non-technical content updates.",
@@ -57,7 +68,7 @@ export const projects: Project[] = [
   },
   {
     id: "yieldstone",
-    num: "005",
+    num: "006",
     title: "YIELDSTONE SYSTEMS",
     description:
       "5-page marketing site for a cannabis QA consulting firm built to establish credibility in a regulated niche. Astro island architecture, 41 optimized images, scroll animations, Formspree contact integration.",
@@ -68,7 +79,7 @@ export const projects: Project[] = [
   },
   {
     id: "devsum",
-    num: "006",
+    num: "007",
     title: "DEVSUM",
     description:
       "Open source Node/Express middleware that parses git diffs and auto-generates Conventional Commit messages via OpenAI. Sub-200ms response under load with OAuth 2.0 GitHub integration.",
@@ -77,16 +88,5 @@ export const projects: Project[] = [
     liveUrl: "#",
     linkLabel: "OPEN SOURCE",
     stars: 4,
-  },
-  {
-    id: "jewmanity",
-    num: "007",
-    title: "JEWMANITY",
-    description:
-      "16-page site for Jewmanity, a Jewish and Israeli mental health 501(c)(3). Tells the org's story, presents its healing retreats and mental health resources, and makes it easy to donate, shop, and get involved. Stripe shop, Givebutter donations, and volunteer/contact forms. Sanity CMS with hardcoded GROQ fallbacks so a CMS outage never breaks a page.",
-    tags: ["ASTRO 5", "TAILWIND 4", "SANITY CMS", "STRIPE", "GIVEBUTTER", "GSAP"],
-    githubUrl: "",
-    liveUrl: "https://jewmanity.com",
-    stars: 5,
   },
 ];
