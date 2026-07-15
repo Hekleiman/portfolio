@@ -114,3 +114,42 @@ body::after {
   from { width: 0; }
   to { width: var(--skill-target); }
 }
+
+/* Skip to content link */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10001;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 9px;
+  color: var(--screen-bg);
+  background: var(--neon-green);
+  padding: 12px 20px;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 8px;
+}
+
+/* Visible keyboard focus (pixel-style dashed cursor) */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px dashed var(--neon-cyan);
+  outline-offset: 3px;
+}
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .px { opacity: 0.35; }          /* particles: static, still visible */
+  .scanline { display: none; }     /* moving bar: gone */
+}

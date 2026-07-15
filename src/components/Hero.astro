@@ -204,19 +204,25 @@ import { SITE } from '../data/meta';
 </style>
 
 <script is:inline>
-  var titles = ["FULL-STACK ENGINEER","MOBILE DEVELOPER","PRODUCT BUILDER","CODE WIZARD","TYPESCRIPT NERD"];
-  var ti = 0, ci = 0, deleting = false;
-  var el = document.getElementById("typed-title");
-  function type() {
-    var t = titles[ti];
-    if (!deleting) {
-      el.textContent = t.slice(0, ++ci);
-      if (ci === t.length) { deleting = true; setTimeout(type, 1800); return; }
-    } else {
-      el.textContent = t.slice(0, --ci);
-      if (ci === 0) { deleting = false; ti = (ti + 1) % titles.length; }
+  (function () {
+    var titles = ["FULL-STACK ENGINEER","MOBILE DEVELOPER","PRODUCT BUILDER","CODE WIZARD","TYPESCRIPT NERD"];
+    var ti = 0, ci = 0, deleting = false;
+    var el = document.getElementById("typed-title");
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      el.textContent = titles[0];
+      return;
     }
-    setTimeout(type, deleting ? 50 : 90);
-  }
-  type();
+    function type() {
+      var t = titles[ti];
+      if (!deleting) {
+        el.textContent = t.slice(0, ++ci);
+        if (ci === t.length) { deleting = true; setTimeout(type, 1800); return; }
+      } else {
+        el.textContent = t.slice(0, --ci);
+        if (ci === 0) { deleting = false; ti = (ti + 1) % titles.length; }
+      }
+      setTimeout(type, deleting ? 50 : 90);
+    }
+    type();
+  })();
 </script>
