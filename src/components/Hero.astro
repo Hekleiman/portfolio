@@ -32,6 +32,7 @@ import { SITE } from '../data/meta';
     <div class="ctas">
       <a href="#projects" class="btn btn-primary">VIEW PROJECTS</a>
       <a href="#contact" class="btn btn-secondary">HIRE ME</a>
+      <a href="/erik-kleiman-resume.pdf" class="btn btn-tertiary" download>RESUME.PDF</a>
     </div>
   </div>
 </section>
@@ -151,6 +152,8 @@ import { SITE } from '../data/meta';
   /* CTA buttons */
   .ctas {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 16px;
     margin-top: 28px;
   }
@@ -185,6 +188,18 @@ import { SITE } from '../data/meta';
   .btn-secondary:hover {
     transform: translate(-2px, -2px);
     box-shadow: 6px 6px 0 #006b80;
+  }
+
+  .btn-tertiary {
+    background: transparent;
+    color: var(--pixel-yellow);
+    border: 2px solid var(--pixel-yellow);
+    box-shadow: 4px 4px 0 #8c7a00;
+  }
+
+  .btn-tertiary:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 #8c7a00;
   }
 </style>
 
