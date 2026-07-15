@@ -89,7 +89,7 @@ export const projects: Project[] = [
     num: "007",
     title: "DEVSUM",
     description:
-      "AI dev-analytics dashboard built by a team of 4. I built the backend OpenAI commit-analysis service — prompt building, diff analysis, and caching — plus the shared GitHub OAuth flow. React 19, Express, MongoDB, GitHub OAuth.",
+      "AI dev-analytics dashboard shipped by a team of 4 working in pair and mob sessions. I drove the backend OpenAI commit-analysis service — prompt building, diff analysis, caching — plus the shared GitHub OAuth flow.",
     tags: ["REACT 19", "EXPRESS", "MONGODB", "OPENAI", "OAUTH 2.0"],
     githubUrl: "https://github.com/osp3/devsum",
     liveUrl: "https://www.linkedin.com/company/108621640/",

@@ -15,7 +15,7 @@ export const skillCategories: SkillCategory[] = [
     skills: [
       { name: "JavaScript", count: 8, gradient: "linear-gradient(90deg, #ffe600, #ff6b00)" },
       { name: "HTML / CSS", count: 8, gradient: "linear-gradient(90deg, #e34f26, #2965f1)" },
-      { name: "TypeScript", count: 7, gradient: "linear-gradient(90deg, #3178c6, #00e5ff)" },
+      { name: "TypeScript", count: 6, gradient: "linear-gradient(90deg, #3178c6, #00e5ff)" },
     ],
   },
   {
