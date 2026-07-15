@@ -23,3 +23,9 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 .vercel
+
+# claude code
+.claude/
+
+# scratch / non-project
+PersonalSite (1)/
