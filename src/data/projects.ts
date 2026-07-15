@@ -89,9 +89,9 @@ export const projects: Project[] = [
     num: "007",
     title: "DEVSUM",
     description:
-      "Open source Node/Express middleware that parses git diffs and auto-generates Conventional Commit messages via OpenAI. Sub-200ms response under load with OAuth 2.0 GitHub integration.",
-    tags: ["NODE.JS", "EXPRESS", "OPENAI", "OAUTH 2.0", "TYPESCRIPT"],
-    githubUrl: "https://github.com/Hekleiman/devsum",
+      "AI dev-analytics dashboard built by a team of 4. I built the backend OpenAI commit-analysis service — prompt building, diff analysis, and caching — plus the shared GitHub OAuth flow. React 19, Express, MongoDB, GitHub OAuth.",
+    tags: ["REACT 19", "EXPRESS", "MONGODB", "OPENAI", "OAUTH 2.0"],
+    githubUrl: "https://github.com/osp3/devsum",
     liveUrl: "#",
     linkLabel: "OPEN SOURCE",
     stars: 4,
