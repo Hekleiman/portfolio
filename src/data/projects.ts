@@ -17,7 +17,7 @@ export const projects: Project[] = [
     num: "001",
     title: "JEWMANITY",
     description:
-      "16-page site for Jewmanity, a Jewish and Israeli mental health 501(c)(3). Tells the org's story, presents its healing retreats and mental health resources, and makes it easy to donate, shop, and get involved. Stripe shop, Givebutter donations, and volunteer/contact forms. Sanity CMS with hardcoded GROQ fallbacks so a CMS outage never breaks a page.",
+      "16-page site for a Jewish and Israeli mental health 501(c)(3). Stripe shop, Givebutter donations, and volunteer/contact forms. Sanity CMS with hardcoded GROQ fallbacks so a CMS outage never breaks a page.",
     tags: ["ASTRO 5", "TAILWIND 4", "SANITY CMS", "STRIPE", "GIVEBUTTER", "GSAP"],
     githubUrl: "",
     liveUrl: "https://jewmanity.com",
@@ -65,7 +65,7 @@ export const projects: Project[] = [
     num: "005",
     title: "DR. KIPPER MD",
     description:
-      "HIPAA-compliant Next.js 15 concierge medicine site. Diagnosed Core Web Vitals degradation traced to Mumbai hosting geography and migrated to Vercel US infrastructure. WCAG 2.2 AA, JSON-LD E-E-A-T SEO, and a staff CMS portal for non-technical content updates.",
+      "HIPAA-compliant Next.js 15 concierge medicine site. Diagnosed Core Web Vitals degradation traced to Mumbai hosting and migrated to Vercel US infrastructure. WCAG 2.2 AA, with a staff CMS portal for non-technical content updates.",
     tags: ["NEXT.JS 15", "TYPESCRIPT", "TAILWIND", "VERCEL BLOB", "ATHENAHEALTH"],
     githubUrl: "",
     liveUrl: "https://stuartbkippermd.com/",
