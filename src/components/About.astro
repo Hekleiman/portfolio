@@ -1,10 +1,10 @@
 ---
-const stats = [
-  { label: "FRONTEND", pct: 90, gradient: "linear-gradient(90deg, var(--neon-cyan), #0080ff)" },
-  { label: "MOBILE", pct: 85, gradient: "linear-gradient(90deg, var(--neon-green), #00aa44)" },
-  { label: "BACKEND", pct: 78, gradient: "linear-gradient(90deg, var(--atari-orange), var(--pixel-yellow))" },
-  { label: "PERFORMANCE", pct: 92, gradient: "linear-gradient(90deg, var(--snes-purple), #cc00ff)" },
-  { label: "PROBLEM SOLVE", pct: 96, gradient: "linear-gradient(90deg, var(--hp-red), var(--atari-orange))" },
+const achievements = [
+  { title: "CHROME WEB STORE PUBLISHED", sub: "Portsmith" },
+  { title: "HIPAA-COMPLIANT BUILD SHIPPED", sub: "Dr. Kipper MD" },
+  { title: "APP DISTRIBUTED VIA TESTFLIGHT", sub: "Trade-Up" },
+  { title: "501(c)(3) NONPROFIT SITE SHIPPED", sub: "Jewmanity" },
+  { title: "OPEN SOURCE MAINTAINER", sub: "DevSum" },
 ];
 ---
 
@@ -26,14 +26,15 @@ const stats = [
         </div>
       </div>
       <div class="card-divider"></div>
-      <div class="stat-bars">
-        {stats.map((s) => (
-          <div class="stat-row">
-            <span class="stat-label">{s.label}</span>
-            <div class="stat-track">
-              <div class="stat-fill" style={`width:${s.pct}%;background:${s.gradient}`}></div>
+      <h4 class="achievements-title">ACHIEVEMENTS UNLOCKED</h4>
+      <div class="achievements">
+        {achievements.map((a) => (
+          <div class="achievement">
+            <div class="achievement-icon">&#x2605;</div>
+            <div class="achievement-info">
+              <span class="achievement-name">{a.title}</span>
+              <span class="achievement-sub">{a.sub}</span>
             </div>
-            <span class="stat-num">{s.pct}</span>
           </div>
         ))}
       </div>
@@ -179,44 +180,58 @@ const stats = [
     margin-bottom: 16px;
   }
 
-  /* Stat bars */
-  .stat-bars {
+  /* Achievements */
+  .achievements-title {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 7px;
+    color: var(--atari-orange);
+    letter-spacing: 2px;
+    margin-bottom: 14px;
+  }
+
+  .achievements {
     display: flex;
     flex-direction: column;
+    gap: 14px;
+  }
+
+  .achievement {
+    display: flex;
+    align-items: center;
     gap: 12px;
   }
 
-  .stat-row {
+  .achievement-icon {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+    border: 2px solid var(--pixel-yellow);
+    background: rgba(255, 230, 0, 0.08);
+    color: var(--pixel-yellow);
+    font-family: 'Press Start 2P', monospace;
+    font-size: 10px;
     display: flex;
     align-items: center;
-    gap: 8px;
+    justify-content: center;
   }
 
-  .stat-label {
+  .achievement-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .achievement-name {
     font-family: 'Press Start 2P', monospace;
-    font-size: 6px;
-    color: var(--ps1-grey);
-    width: 80px;
-    flex-shrink: 0;
+    font-size: 7px;
+    color: #fff;
+    letter-spacing: 1px;
   }
 
-  .stat-track {
-    flex: 1;
-    height: 10px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-  }
-
-  .stat-fill {
-    height: 100%;
-  }
-
-  .stat-num {
+  .achievement-sub {
     font-family: 'VT323', monospace;
-    font-size: 18px;
-    color: var(--neon-green);
-    width: 28px;
-    text-align: right;
+    font-size: 15px;
+    color: var(--ps1-grey);
   }
 
   /* Bio */
