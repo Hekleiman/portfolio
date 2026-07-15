@@ -17,6 +17,29 @@
       <span id="timer" class="timer-value">9</span>
     </div>
 
+    <form id="contact-form">
+      <div class="field">
+        <label for="cf-name">NAME</label>
+        <input id="cf-name" name="name" type="text" required autocomplete="name" />
+      </div>
+      <div class="field">
+        <label for="cf-email">EMAIL</label>
+        <input id="cf-email" name="email" type="email" required autocomplete="email" />
+      </div>
+      <div class="field">
+        <label for="cf-message">MESSAGE</label>
+        <textarea id="cf-message" name="message" required rows="4" maxlength="1000"></textarea>
+      </div>
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" aria-hidden="true" />
+      <button type="submit" id="cf-submit" class="btn btn-primary">&#x25BA; SEND MESSAGE</button>
+      <p id="cf-error" class="cf-error" role="alert" hidden>TRANSMISSION FAILED &#x25B8; TRY EMAIL ME</p>
+    </form>
+
+    <div id="cf-success" class="cf-success" hidden>
+      <p class="cf-success-msg">MESSAGE SENT &#x25B8; NEW HIGH SCORE!</p>
+      <a href="#" id="cf-again" class="cf-again">&#x25BA; SEND ANOTHER</a>
+    </div>
+
     <div class="ctas">
       <a href="mailto:hekleiman@gmail.com" class="btn btn-primary">EMAIL ME</a>
       <a href="https://github.com/Hekleiman" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">GITHUB</a>
@@ -64,6 +87,7 @@
 
   .continue-box {
     display: inline-block;
+    max-width: 100%;
     border: 3px solid var(--neon-cyan);
     padding: 48px 64px;
     background: rgba(0, 229, 255, 0.03);
@@ -115,6 +139,89 @@
     font-size: 28px;
     color: var(--hp-red);
     text-shadow: 0 0 10px rgba(255, 34, 68, 0.6);
+  }
+
+  /* Arcade high-score contact form */
+  #contact-form {
+    max-width: 420px;
+    width: 100%;
+    margin: 0 auto 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    text-align: left;
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  #contact-form label {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 7px;
+    color: var(--ps1-grey);
+    letter-spacing: 1px;
+  }
+
+  #contact-form input,
+  #contact-form textarea {
+    width: 100%;
+    font-family: 'VT323', monospace;
+    font-size: 18px;
+    color: var(--neon-green);
+    background: rgba(106, 13, 173, 0.08);
+    border: 2px solid var(--snes-purple);
+    padding: 10px;
+  }
+
+  #contact-form textarea {
+    resize: vertical;
+  }
+
+  #contact-form input:focus,
+  #contact-form textarea:focus {
+    border-color: var(--neon-cyan);
+  }
+
+  #cf-submit {
+    align-self: center;
+    border: none;
+    margin-top: 2px;
+  }
+
+  .cf-error {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 8px;
+    line-height: 1.6;
+    color: var(--hp-red);
+    text-align: center;
+    margin-top: 4px;
+  }
+
+  .cf-success {
+    max-width: 420px;
+    margin: 0 auto 24px;
+  }
+
+  .cf-success-msg {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 9px;
+    line-height: 1.6;
+    color: var(--neon-green);
+    margin-bottom: 14px;
+  }
+
+  .cf-again {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 8px;
+    color: var(--neon-green);
+    text-decoration: none;
+  }
+
+  .cf-again:hover {
+    color: var(--pixel-yellow);
   }
 
   .ctas {
@@ -192,4 +299,49 @@
       }
     }, 1000);
   }
+</script>
+
+<script is:inline>
+  (function () {
+    var form = document.getElementById("contact-form");
+    if (!form) return;
+    var btn = document.getElementById("cf-submit");
+    var errEl = document.getElementById("cf-error");
+    var success = document.getElementById("cf-success");
+    var again = document.getElementById("cf-again");
+    var ENDPOINT = "https://formspree.io/f/xqerepzb";
+
+    form.addEventListener("submit", function (e) {
+      // Native validation runs first; this handler only fires when the form is valid.
+      e.preventDefault();
+      errEl.hidden = true;
+      var original = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = "SENDING...";
+      fetch(ENDPOINT, {
+        method: "POST",
+        headers: { "Accept": "application/json" },
+        body: new FormData(form)
+      }).then(function (res) {
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        form.hidden = true;
+        success.hidden = false;
+      }).catch(function () {
+        errEl.hidden = false; // keep the user's input intact
+      }).finally(function () {
+        btn.disabled = false;
+        btn.textContent = original;
+      });
+    });
+
+    again.addEventListener("click", function (e) {
+      e.preventDefault();
+      form.reset();
+      success.hidden = true;
+      form.hidden = false;
+      errEl.hidden = true;
+      var first = document.getElementById("cf-name");
+      if (first) first.focus();
+    });
+  })();
 </script>
