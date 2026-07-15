@@ -19,7 +19,7 @@ export const projects: Project[] = [
     description:
       "16-page site for a Jewish and Israeli mental health 501(c)(3). Stripe shop, Givebutter donations, and volunteer/contact forms. Sanity CMS with hardcoded GROQ fallbacks so a CMS outage never breaks a page.",
     tags: ["ASTRO 5", "TAILWIND 4", "SANITY CMS", "STRIPE", "GIVEBUTTER", "GSAP"],
-    githubUrl: "",
+    githubUrl: "https://github.com/Hekleiman/jewmanity",
     liveUrl: "https://jewmanity.com",
     stars: 5,
     image: "/images/projects/jewmanity.png",
@@ -43,7 +43,7 @@ export const projects: Project[] = [
     description:
       "Chrome extension for migrating AI assistant configs between ChatGPT, Claude, and Gemini. Reverse-engineered platform APIs, built a Universal Interchange Schema, zero user data leaves the device. Live on the Chrome Web Store.",
     tags: ["TYPESCRIPT", "VITE", "CHROME MV3", "SIDE PANEL API"],
-    githubUrl: "",
+    githubUrl: "https://github.com/Hekleiman/portsmith",
     liveUrl: "https://chromewebstore.google.com/detail/jgicdjjebakiobiehdfdbgkfknkidhcd",
     stars: 5,
     image: "/images/projects/portsmith.png",
@@ -55,7 +55,7 @@ export const projects: Project[] = [
     description:
       "6-page portfolio site with headless CMS, GSAP scroll animations, and pixel-perfect Figma implementation. Self-hosted fonts and optimized asset delivery for sub-1.5s load on slow 4G.",
     tags: ["ASTRO 5", "SANITY CMS", "GSAP", "TAILWIND", "TYPESCRIPT"],
-    githubUrl: "",
+    githubUrl: "https://github.com/Hekleiman/hekds",
     liveUrl: "https://www.hekdesigns.com/",
     stars: 5,
     image: "/images/projects/hekdesign.png",
