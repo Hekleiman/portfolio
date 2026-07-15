@@ -80,9 +80,9 @@ export const projects: Project[] = [
       "5-page marketing site for a cannabis QA consulting firm built to establish credibility in a regulated niche. Astro island architecture, 41 optimized images, scroll animations, Formspree contact integration.",
     tags: ["ASTRO", "REACT", "TAILWIND", "TYPESCRIPT", "FORMSPREE"],
     githubUrl: "",
-    liveUrl: "#",
+    liveUrl: "https://yieldstonesystems.com/",
     stars: 4,
-    image: null,
+    image: "/images/projects/yieldstone.png",
   },
   {
     id: "devsum",
