@@ -8,6 +8,7 @@ import { skillCategories } from '../data/skills';
     <h2>POWER-UPS</h2>
     <div class="section-line"></div>
   </div>
+  <p class="legend">BAR = USAGE ACROSS 8 SHIPPED PROJECTS</p>
 
   <div class="skills-grid">
     {skillCategories.map((cat) => (
@@ -18,17 +19,20 @@ import { skillCategories } from '../data/skills';
             <div class="skill">
               <div class="skill-meta">
                 <span class="skill-name">{skill.name}</span>
-                <span class="skill-pct">{skill.pct}%</span>
+                <span class="skill-count">&#xD7;{skill.count}</span>
               </div>
               <div class="skill-track">
                 <div
                   class="skill-fill"
-                  style={`--skill-target:${skill.pct}%;background:${skill.gradient}`}
+                  style={`--skill-target:${(skill.count / 8) * 100}%;background:${skill.gradient}`}
                 ></div>
               </div>
             </div>
           ))}
         </div>
+        {cat.category === 'LANGUAGES' && (
+          <p class="also-in-inventory">ALSO IN INVENTORY: PYTHON &#xB7; SQL</p>
+        )}
       </div>
     ))}
   </div>
@@ -46,7 +50,15 @@ import { skillCategories } from '../data/skills';
     display: flex;
     align-items: center;
     gap: 16px;
-    margin-bottom: 48px;
+    margin-bottom: 12px;
+  }
+
+  .legend {
+    font-family: 'VT323', monospace;
+    font-size: 16px;
+    color: var(--ps1-grey);
+    text-align: right;
+    margin-bottom: 36px;
   }
 
   .section-num {
@@ -118,7 +130,7 @@ import { skillCategories } from '../data/skills';
     color: #c0b0e0;
   }
 
-  .skill-pct {
+  .skill-count {
     font-family: 'VT323', monospace;
     font-size: 18px;
     color: var(--neon-green);
@@ -133,6 +145,14 @@ import { skillCategories } from '../data/skills';
 
   .skill-fill {
     height: 100%;
+    min-width: 8px;
     animation: skill-in 1.5s ease forwards;
+  }
+
+  .also-in-inventory {
+    font-family: 'VT323', monospace;
+    font-size: 16px;
+    color: var(--ps1-grey);
+    margin-top: 14px;
   }
 </style>
