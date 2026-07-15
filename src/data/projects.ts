@@ -8,6 +8,7 @@ export interface Project {
   liveUrl: string;
   linkLabel?: string;
   stars: number;
+  image: string | null;
 }
 
 export const projects: Project[] = [
@@ -21,6 +22,7 @@ export const projects: Project[] = [
     githubUrl: "",
     liveUrl: "https://jewmanity.com",
     stars: 5,
+    image: "/images/projects/jewmanity.png",
   },
   {
     id: "tradeup",
@@ -32,6 +34,7 @@ export const projects: Project[] = [
     githubUrl: "",
     liveUrl: "https://tradeupmarket.com",
     stars: 5,
+    image: "/images/projects/tradeup.png",
   },
   {
     id: "portsmith",
@@ -43,6 +46,7 @@ export const projects: Project[] = [
     githubUrl: "",
     liveUrl: "https://chromewebstore.google.com/detail/jgicdjjebakiobiehdfdbgkfknkidhcd",
     stars: 5,
+    image: "/images/projects/portsmith.png",
   },
   {
     id: "hekdesign",
@@ -54,6 +58,7 @@ export const projects: Project[] = [
     githubUrl: "",
     liveUrl: "https://www.hekdesigns.com/",
     stars: 5,
+    image: "/images/projects/hekdesign.png",
   },
   {
     id: "drikipper",
@@ -65,6 +70,7 @@ export const projects: Project[] = [
     githubUrl: "",
     liveUrl: "https://stuartbkippermd.com/",
     stars: 4,
+    image: "/images/projects/drikipper.png",
   },
   {
     id: "yieldstone",
@@ -76,6 +82,7 @@ export const projects: Project[] = [
     githubUrl: "",
     liveUrl: "#",
     stars: 4,
+    image: null,
   },
   {
     id: "devsum",
@@ -88,5 +95,6 @@ export const projects: Project[] = [
     liveUrl: "#",
     linkLabel: "OPEN SOURCE",
     stars: 4,
+    image: null,
   },
 ];

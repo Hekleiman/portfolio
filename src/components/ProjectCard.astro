@@ -22,6 +22,18 @@ const stars = [1, 2, 3, 4, 5];
   </div>
 
   <div class="cartridge-label">
+    {project.image && (
+      <div class="label-art-frame">
+        <img
+          class="label-art"
+          src={project.image}
+          alt={`${project.title} screenshot`}
+          width="640"
+          height="400"
+          loading="lazy"
+        />
+      </div>
+    )}
     <span class="project-num">PROJECT NO. {project.num}</span>
     <h3>{project.title}</h3>
     <p>{project.description}</p>
@@ -124,6 +136,35 @@ const stars = [1, 2, 3, 4, 5];
       #cc0000 100%
     );
     opacity: 0.6;
+  }
+
+  /* Screenshot "label art" */
+  .label-art-frame {
+    position: relative;
+    line-height: 0;
+    margin-top: 10px;
+  }
+
+  .label-art {
+    display: block;
+    width: 100%;
+    image-rendering: pixelated;
+    border: 1px solid #aaa080;
+  }
+
+  /* CRT scanline overlay, echoing the site's .scanline aesthetic */
+  .label-art-frame::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 1px,
+      rgba(0, 0, 0, 0.12) 1px,
+      rgba(0, 0, 0, 0.12) 2px
+    );
+    pointer-events: none;
   }
 
   .project-num {
