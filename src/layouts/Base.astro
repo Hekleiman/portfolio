@@ -57,5 +57,39 @@ const {
     <a class="skip-link" href="#main">PRESS START &#x25B8; SKIP TO CONTENT</a>
     <div class="scanline"></div>
     <slot />
+    <script is:inline>
+      (function () {
+        var seq = ["ArrowUp","ArrowUp","ArrowDown","ArrowDown","ArrowLeft","ArrowRight","ArrowLeft","ArrowRight","b","a"];
+        var pos = 0;
+        var toast, hideTimer;
+        function hit(key, want) {
+          return want.length === 1 ? key.toLowerCase() === want : key === want;
+        }
+        function showToast(msg) {
+          if (!toast) {
+            toast = document.createElement("div");
+            toast.className = "god-toast";
+            document.body.appendChild(toast);
+          }
+          toast.textContent = msg;
+          void toast.offsetWidth; /* reflow so the transition runs */
+          toast.classList.add("show");
+          clearTimeout(hideTimer);
+          hideTimer = setTimeout(function () { toast.classList.remove("show"); }, 2500);
+        }
+        window.addEventListener("keydown", function (e) {
+          if (hit(e.key, seq[pos])) {
+            pos++;
+            if (pos === seq.length) {
+              pos = 0;
+              var on = document.documentElement.classList.toggle("god-mode");
+              showToast(on ? "★ GOD MODE UNLOCKED ★" : "GOD MODE DISABLED");
+            }
+          } else {
+            pos = hit(e.key, seq[0]) ? 1 : 0;
+          }
+        });
+      })();
+    </script>
   </body>
 </html>

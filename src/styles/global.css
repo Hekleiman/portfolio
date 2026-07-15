@@ -141,6 +141,57 @@ button:focus-visible {
   outline-offset: 3px;
 }
 
+/* Easter egg: countdown "CREDIT ACCEPTED" glitch (extends flicker w/ jitter) */
+@keyframes credit-glitch {
+  0%   { transform: translate(0, 0);     opacity: 1; }
+  15%  { transform: translate(-2px, 1px); opacity: 0.8; }
+  30%  { transform: translate(2px, -1px); opacity: 1; }
+  45%  { transform: translate(-1px, -2px); opacity: 0.85; }
+  60%  { transform: translate(1px, 2px);  opacity: 1; }
+  80%  { transform: translate(-2px, 0);   opacity: 0.9; }
+  100% { transform: translate(0, 0);      opacity: 1; }
+}
+
+.continue-box.glitching {
+  animation: credit-glitch 0.6s linear;
+}
+
+/* Easter egg: Konami god mode */
+@keyframes god-hue {
+  from { filter: hue-rotate(0deg); }
+  to   { filter: hue-rotate(360deg); }
+}
+
+html.god-mode {
+  animation: god-hue 10s linear infinite;
+}
+
+html.god-mode .px {
+  opacity: 1;
+}
+
+.god-toast {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10002;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  line-height: 1.6;
+  color: var(--pixel-yellow);
+  background: var(--snes-dark);
+  border: 2px solid var(--pixel-yellow);
+  padding: 16px 24px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.god-toast.show {
+  opacity: 1;
+}
+
 /* Respect reduced-motion preference */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -152,4 +203,10 @@ button:focus-visible {
   }
   .px { opacity: 0.35; }          /* particles: static, still visible */
   .scanline { display: none; }     /* moving bar: gone */
+
+  /* god mode: static hue shift, no looping animation */
+  html.god-mode {
+    filter: hue-rotate(45deg);
+    animation: none;
+  }
 }

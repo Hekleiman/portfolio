@@ -85,6 +85,10 @@
     margin-bottom: 12px;
   }
 
+  .continue-heading.credit {
+    color: var(--neon-green);
+  }
+
   .subtitle {
     font-family: 'VT323', monospace;
     font-size: 20px;
@@ -163,10 +167,29 @@
 <script is:inline>
   if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     var count = 9;
+    var paused = false;
     var timerEl = document.getElementById("timer");
+    var box = document.querySelector(".continue-box");
+    var heading = document.querySelector(".continue-heading");
     setInterval(function() {
+      if (paused) return;
       count = count > 0 ? count - 1 : 9;
       timerEl.textContent = count;
+      if (count === 0) {
+        // Countdown payoff: glitch the box, flash CREDIT ACCEPTED, then reset.
+        paused = true;
+        box.classList.add("glitching");
+        setTimeout(function () { box.classList.remove("glitching"); }, 600);
+        heading.textContent = "CREDIT ACCEPTED";
+        heading.classList.add("credit");
+        setTimeout(function () {
+          heading.textContent = "CONTINUE?";
+          heading.classList.remove("credit");
+          count = 9;
+          timerEl.textContent = count;
+          paused = false;
+        }, 1200);
+      }
     }, 1000);
   }
 </script>
