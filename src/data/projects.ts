@@ -17,7 +17,7 @@ export const projects: Project[] = [
     num: "001",
     title: "JEWMANITY",
     description:
-      "16-page site for a Jewish and Israeli mental health 501(c)(3). Stripe shop, Givebutter donations, and volunteer/contact forms. Sanity CMS with hardcoded GROQ fallbacks so a CMS outage never breaks a page.",
+      "40-page site for a Jewish and Israeli mental health 501(c)(3). Stripe Payment Links shop, Givebutter donations, and volunteer/contact forms. Sanity CMS with a publish webhook that rebuilds the site in under a minute; a failed fetch during a build degrades a section instead of failing the deploy.",
     tags: ["ASTRO 5", "TAILWIND 4", "SANITY CMS", "STRIPE", "GIVEBUTTER", "GSAP"],
     githubUrl: "https://github.com/Hekleiman/jewmanity",
     liveUrl: "https://jewmanity.com",
@@ -29,7 +29,7 @@ export const projects: Project[] = [
     num: "002",
     title: "TRADE-UP",
     description:
-      "React Native marketplace for hybrid cash and trade offers. AI image recognition pipeline reduced costs 70-90% vs LLM-only solutions. Real-time messaging, QR trade finalization, biometric auth. Production distributed via TestFlight.",
+      "React Native marketplace for hybrid cash and trade offers. Hybrid image pipeline that gates a GPT-4o mini call behind a Google Vision confidence threshold. Real-time messaging, QR trade finalization, biometric auth. Pre-launch on TestFlight. Built with designer Harrison Kipper.",
     tags: ["EXPO", "REACT NATIVE", "SUPABASE", "GPT-4O", "TYPESCRIPT", "ZUSTAND"],
     githubUrl: "",
     liveUrl: "https://tradeupmarket.com",
@@ -41,7 +41,7 @@ export const projects: Project[] = [
     num: "003",
     title: "PORTSMITH",
     description:
-      "Chrome extension for migrating AI assistant configs between ChatGPT, Claude, and Gemini. Reverse-engineered platform APIs, built a Universal Interchange Schema, zero user data leaves the device. Live on the Chrome Web Store.",
+      "Chrome extension for migrating AI assistant configs between ChatGPT, Claude, and Gemini. Mapped each platform's internal web API from network traffic, translates through one interchange schema, and checkpoints writes so an interrupted migration resumes without duplicates. No PortSmith servers, no analytics. Live on the Chrome Web Store.",
     tags: ["TYPESCRIPT", "VITE", "CHROME MV3", "SIDE PANEL API"],
     githubUrl: "https://github.com/Hekleiman/portsmith",
     liveUrl: "https://chromewebstore.google.com/detail/jgicdjjebakiobiehdfdbgkfknkidhcd",
@@ -53,7 +53,7 @@ export const projects: Project[] = [
     num: "004",
     title: "HEK DESIGN STUDIO",
     description:
-      "6-page portfolio site with headless CMS, GSAP scroll animations, and pixel-perfect Figma implementation. Self-hosted fonts and optimized asset delivery for sub-1.5s load on slow 4G.",
+      "6-page portfolio site with headless CMS, GSAP scroll animations, and pixel-perfect Figma implementation. Self-hosted fonts and optimized asset delivery.",
     tags: ["ASTRO 5", "SANITY CMS", "GSAP", "TAILWIND", "TYPESCRIPT"],
     githubUrl: "https://github.com/Hekleiman/hekds",
     liveUrl: "https://www.hekdesigns.com/",
@@ -65,7 +65,7 @@ export const projects: Project[] = [
     num: "005",
     title: "DR. KIPPER MD",
     description:
-      "HIPAA-compliant Next.js 15 concierge medicine site. Diagnosed Core Web Vitals degradation traced to Mumbai hosting and migrated to Vercel US infrastructure. WCAG 2.2 AA, with a staff CMS portal for non-technical content updates.",
+      "Next.js 15 concierge medicine site built to keep patient data off the marketing site; patient workflows hand off to athenaOne. Moved the site off a shared host in Asia onto US-region hosting on Vercel. WCAG 2.2 AA, with a staff CMS portal for non-technical content updates.",
     tags: ["NEXT.JS 15", "TYPESCRIPT", "TAILWIND", "VERCEL BLOB", "ATHENAHEALTH"],
     githubUrl: "",
     liveUrl: "https://stuartbkippermd.com/",
@@ -89,7 +89,7 @@ export const projects: Project[] = [
     num: "007",
     title: "DEVSUM",
     description:
-      "AI dev-analytics dashboard shipped by a team of 4 working in pair and mob sessions. I drove the backend OpenAI commit-analysis service — prompt building, diff analysis, caching — plus the shared GitHub OAuth flow.",
+      "AI dev-analytics dashboard shipped by a team of 4 working in pair and mob sessions. I built the backend OpenAI commit-analysis service (prompt building, diff analysis, caching) and paired on the shared GitHub OAuth flow.",
     tags: ["REACT 19", "EXPRESS", "MONGODB", "OPENAI", "OAUTH 2.0"],
     githubUrl: "https://github.com/osp3/devsum",
     liveUrl: "https://www.linkedin.com/company/108621640/",

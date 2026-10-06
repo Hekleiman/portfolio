@@ -5,7 +5,7 @@ export const SITE = {
   location: "San Diego, CA",
   email: "hekleiman@gmail.com",
   github: "https://github.com/Hekleiman",
-  linkedin: "https://linkedin.com/in/henry-erik-kleiman-85aa99288",
+  linkedin: "https://www.linkedin.com/in/henry-erik-kleiman",
   titles: [
     "FULL-STACK ENGINEER",
     "MOBILE DEVELOPER",
