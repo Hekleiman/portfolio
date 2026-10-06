@@ -19,7 +19,7 @@ export const projects: Project[] = [
     description:
       "40-page site for a Jewish and Israeli mental health 501(c)(3). Stripe Payment Links shop, Givebutter donations, and volunteer/contact forms. Sanity CMS with a publish webhook that rebuilds the site in under a minute; a failed fetch during a build degrades a section instead of failing the deploy.",
     tags: ["ASTRO 5", "TAILWIND 4", "SANITY CMS", "STRIPE", "GIVEBUTTER", "GSAP"],
-    githubUrl: "https://github.com/Hekleiman/jewmanity",
+    githubUrl: "",
     liveUrl: "https://jewmanity.com",
     stars: 5,
     image: "/images/projects/jewmanity.png",
