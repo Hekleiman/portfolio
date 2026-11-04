@@ -91,5 +91,35 @@ const {
         });
       })();
     </script>
+    <script>
+      // BUG HUNT arcade easter egg. The game lives in its own chunk and is only
+      // downloaded when launched, so it costs normal visitors nothing.
+      let loading: Promise<void> | null = null;
+      function launchArcade(): void {
+        if (loading || document.querySelector('.arcade-overlay')) return;
+        loading = import('../scripts/arcade/bug-hunt')
+          .then((m) => m.openBugHunt())
+          .catch((err) => console.error('[bug-hunt] failed to load', err))
+          .finally(() => {
+            loading = null;
+          });
+      }
+      (window as unknown as { hekArcade: () => void }).hekArcade = launchArcade;
+
+      // Trigger: type IDKFA anywhere on the page (Doom's "all weapons, full ammo"
+      // cheat). Ignored while typing in a form field.
+      const CHEAT = 'idkfa';
+      let typed = '';
+      window.addEventListener('keydown', (e) => {
+        const t = e.target;
+        if (t instanceof HTMLInputElement || t instanceof HTMLTextAreaElement || (t instanceof HTMLElement && t.isContentEditable)) return;
+        if (e.key.length !== 1 || e.ctrlKey || e.metaKey || e.altKey) return;
+        typed = (typed + e.key.toLowerCase()).slice(-CHEAT.length);
+        if (typed === CHEAT) {
+          typed = '';
+          launchArcade();
+        }
+      });
+    </script>
   </body>
 </html>
