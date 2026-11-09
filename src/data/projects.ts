@@ -13,8 +13,20 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    id: "jewmanity",
+    id: "parlour",
     num: "001",
+    title: "PARLOUR",
+    description:
+      "Free Mac app that plays Spotify and Apple Music through a simulated turntable. A Core Audio process tap feeds a real-time Swift DSP engine over a lock-free ring buffer, with every added sound modeled on measured LP transfers. Pauses and resumes the source app around each needle drop, landing within 1 to 3 ms. Built and shipped solo.",
+    tags: ["SWIFT", "SWIFTUI", "CORE AUDIO", "C", "PYTHON", "SPARKLE 2"],
+    githubUrl: "",
+    liveUrl: "https://parlourhifi.com",
+    stars: 5,
+    image: "/images/projects/parlour.png",
+  },
+  {
+    id: "jewmanity",
+    num: "002",
     title: "JEWMANITY",
     description:
       "40-page site for a Jewish and Israeli mental health 501(c)(3). Stripe Payment Links shop, Givebutter donations, and volunteer/contact forms. Sanity CMS with a publish webhook that rebuilds the site in under a minute; a failed fetch during a build degrades a section instead of failing the deploy.",
@@ -26,7 +38,7 @@ export const projects: Project[] = [
   },
   {
     id: "tradeup",
-    num: "002",
+    num: "003",
     title: "TRADE-UP",
     description:
       "React Native marketplace for hybrid cash and trade offers. Hybrid image pipeline that gates a GPT-4o mini call behind a Google Vision confidence threshold. Real-time messaging, QR trade finalization, biometric auth. Pre-launch on TestFlight. Built with designer Harrison Kipper.",
@@ -38,7 +50,7 @@ export const projects: Project[] = [
   },
   {
     id: "portsmith",
-    num: "003",
+    num: "004",
     title: "PORTSMITH",
     description:
       "Chrome extension for migrating AI assistant configs between ChatGPT, Claude, and Gemini. Mapped each platform's internal web API from network traffic, translates through one interchange schema, and checkpoints writes so an interrupted migration resumes without duplicates. No PortSmith servers, no analytics. Live on the Chrome Web Store.",
@@ -50,7 +62,7 @@ export const projects: Project[] = [
   },
   {
     id: "hekdesign",
-    num: "004",
+    num: "005",
     title: "HEK DESIGN STUDIO",
     description:
       "6-page portfolio site with headless CMS, GSAP scroll animations, and pixel-perfect Figma implementation. Self-hosted fonts and optimized asset delivery.",
@@ -62,7 +74,7 @@ export const projects: Project[] = [
   },
   {
     id: "drikipper",
-    num: "005",
+    num: "006",
     title: "DR. KIPPER MD",
     description:
       "Next.js 15 concierge medicine site built to keep patient data off the marketing site; patient workflows hand off to athenaOne. Moved the site off a shared host in Asia onto US-region hosting on Vercel. WCAG 2.2 AA, with a staff CMS portal for non-technical content updates.",
@@ -74,7 +86,7 @@ export const projects: Project[] = [
   },
   {
     id: "yieldstone",
-    num: "006",
+    num: "007",
     title: "YIELDSTONE SYSTEMS",
     description:
       "5-page marketing site for a cannabis QA consulting firm built to establish credibility in a regulated niche. Astro island architecture, 41 optimized images, scroll animations, Formspree contact integration.",
@@ -86,7 +98,7 @@ export const projects: Project[] = [
   },
   {
     id: "devsum",
-    num: "007",
+    num: "008",
     title: "DEVSUM",
     description:
       "AI dev-analytics dashboard shipped by a team of 4 working in pair and mob sessions. I built the backend OpenAI commit-analysis service (prompt building, diff analysis, caching) and paired on the shared GitHub OAuth flow.",

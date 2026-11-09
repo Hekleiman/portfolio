@@ -1,5 +1,9 @@
 ---
 import { skillCategories } from '../data/skills';
+import { projects } from '../data/projects';
+
+// Bars are out of every shipped project plus this site.
+const TOTAL = projects.length + 1;
 ---
 
 <section id="skills">
@@ -8,7 +12,7 @@ import { skillCategories } from '../data/skills';
     <h2>POWER-UPS</h2>
     <div class="section-line"></div>
   </div>
-  <p class="legend">BAR = USAGE ACROSS 8 PROJECTS, INCLUDING THIS SITE</p>
+  <p class="legend">BAR = USAGE ACROSS {TOTAL} PROJECTS, INCLUDING THIS SITE</p>
 
   <div class="skills-grid">
     {skillCategories.map((cat) => (
@@ -24,14 +28,14 @@ import { skillCategories } from '../data/skills';
               <div class="skill-track">
                 <div
                   class="skill-fill"
-                  style={`--skill-target:${(skill.count / 8) * 100}%;background:${skill.gradient}`}
+                  style={`--skill-target:${(skill.count / TOTAL) * 100}%;background:${skill.gradient}`}
                 ></div>
               </div>
             </div>
           ))}
         </div>
         {cat.category === 'LANGUAGES' && (
-          <p class="also-in-inventory">ALSO IN INVENTORY: PYTHON &#xB7; SQL</p>
+          <p class="also-in-inventory">ALSO IN INVENTORY: SQL</p>
         )}
       </div>
     ))}
