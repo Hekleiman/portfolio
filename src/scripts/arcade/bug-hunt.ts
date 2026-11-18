@@ -920,7 +920,7 @@ class BugHunt {
     const hire = document.createElement('button');
     hire.type = 'button';
     hire.className = 'ap-primary';
-    hire.textContent = 'CONTINUE? HIRE ME';
+    hire.textContent = 'CONTINUE? CONTACT';
     hire.addEventListener('click', () => {
       this.close();
       const target = document.getElementById('contact');
