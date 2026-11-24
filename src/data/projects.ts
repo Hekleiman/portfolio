@@ -77,7 +77,7 @@ export const projects: Project[] = [
     num: "006",
     title: "DR. KIPPER MD",
     description:
-      "Next.js 15 concierge medicine site built to keep patient data off the marketing site; patient workflows hand off to athenaOne. Moved the site off a shared host in Asia onto US-region hosting on Vercel. WCAG 2.2 AA, with a staff CMS portal for non-technical content updates.",
+      "Next.js 15 concierge medicine site built to keep patient data off the marketing site; patient workflows hand off to athenaOne. Moved the site off a shared host in Asia onto US-region hosting on Vercel. With a staff CMS portal for non-technical content updates.",
     tags: ["NEXT.JS 15", "TYPESCRIPT", "TAILWIND", "VERCEL BLOB"],
     githubUrl: "",
     liveUrl: "https://stuartbkippermd.com/",
